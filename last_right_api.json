@@ -1,0 +1,132 @@
+{
+    "info": {
+        "_postman_id": "Your_Postman_ID",
+        "name": "Video Tutorials API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Get All Videos",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/api/videos",
+                    "protocol": "http",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "videos"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Video By ID",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/api/videos/{video_id}",
+                    "protocol": "http",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "videos",
+                        "{{video_id}}"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Related Videos",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/api/videos/{video_id}/related",
+                    "protocol": "http",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "videos",
+                        "{{video_id}}",
+                        "related"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Comments for Video",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/api/videos/{video_id}/comments",
+                    "protocol": "http",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "videos",
+                        "{{video_id}}",
+                        "comments"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Search Videos",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/api/search?query={search_term}",
+                    "protocol": "http",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "search"
+                    ],
+                    "query": [
+                        {
+                            "key": "query",
+                            "value": "{{search_term}}"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://your-api-base-url.com",
+            "type": "string"
+        },
+        {
+            "key": "video_id",
+            "value": "123",
+            "type": "string"
+        },
+        {
+            "key": "search_term",
+            "value": "your_search_term",
+            "type": "string"
+        }
+    ]
+}
