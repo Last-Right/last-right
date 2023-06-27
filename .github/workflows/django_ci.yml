@@ -1,0 +1,41 @@
+name: Build and Run Docker Container
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+      
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+      
+    - name: Build Docker image
+      run: docker build -t last_right_server .
+      
+    - name: Run Docker container
+      run: docker run -d -p 8000:8000 last_right_server
+      
+    - name: Wait for the container to start
+      run: sleep 10
+      
+    - name: Run API tests
+      run: |
+        # Perform your API tests here, using a testing framework like pytest
+        # Example command: pytest tests/api_tests.py
+        # Make sure to update it based on your project's setup
+        
+    - name: Stop Docker container
+      run: docker stop $(docker ps -q --filter ancestor=last_right_server)
+      
